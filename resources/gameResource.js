@@ -2,8 +2,8 @@
 // ==================================================================================================
 
 // Array of Word Options (all lowercase)
-var wordsList = ["jerome", "neena", "darion", "lou", "greg", "jordan",
-  "jasmine", "stephen", "jacob", "adam", "rui", "luis"];
+var wordsList = ["jerome simpson", "neena simpson", "darion simpson", "lou simpson", "greg simpson", "jordan simpson",
+  "jasmine simpson", "stephen simpson", "jacob simpson", "adam simpson", "rui simpson", "luis simpson"];
 // Solution will be held here.
 var chosenWord = "";
 // This will break the solution into individual letters to be stored in array.
@@ -14,6 +14,7 @@ var numBlanks = 0;
 var blanksAndSuccesses = [];
 // Holds all of the wrong guesses
 var wrongGuesses = [];
+var newArray = [];
 
 // Game counters
 var winCounter = 0;
@@ -48,8 +49,20 @@ function startGame() {
   // Fill up the blanksAndSuccesses list with appropriate number of blanks.
   // This is based on number of letters in solution.
   for (var i = 0; i < numBlanks; i++) {
-    blanksAndSuccesses.push("_");
+    if (lettersInChosenWord[i] === " ") {
+      newArray.push("&nbsp;&nbsp;");
+    } else {
+      newArray.push(`_ `);
+    }
   }
+
+  underscoreWord = newArray.join("");
+  for (var i = 0; i < underscoreWord; i++) {
+    newArray.push("_");
+    underscoreWord.push(blanksAndSuccesses);
+  }
+   // blanksAndSuccesses.push(underscoreWord);
+  
 
   // Print the initial blanks in console.
   console.log(blanksAndSuccesses);
